@@ -3,6 +3,9 @@
 using namespace std;
 
 
+//实现无向网和有向网差别不大，只需要减少相反的赋值就行了；实现有向图只需要用1/0表示状态就行了，无向图也差不多
+
+
 #define Maxint 32767  //表示极大值，即无穷;为赋值时即为正无穷
 #define MVnum 100     //最大顶点数，方阵的行数
 typedef char VerTexType;  //设顶点的数据类型为字符型
@@ -79,6 +82,8 @@ int CountDu(AMGraph G) {
 
 int main() {
 	AMGraph G;
-	CreateUDN(G);
+	CreateUDN(G);//键盘输入创建图
+	PrintUDN(G);//打印图
+	CountDu(G);//统计某个顶点的度
 	return 0;
 }

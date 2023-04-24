@@ -18,5 +18,11 @@
     <ClCompile Include="链表.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="图的邻接矩阵实现.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="图的邻接表表示法.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
