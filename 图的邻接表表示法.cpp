@@ -11,7 +11,7 @@ typedef bool Status;
 typedef struct VNode{
 	VerTexType value;  //顶点信息
 	ArcNode* firstarc; //指向第一个边结点的指针
-}VNode, AdjList[MVNum];//定义顶点结构体,顶点结构体数组
+}VNode;//定义顶点结构体,顶点结构体数组
 
 typedef struct ArcNode{ //边结点
 	int adjvex; //该边所指向点的位置，弧头所指向的点
@@ -20,7 +20,7 @@ typedef struct ArcNode{ //边结点
 }ArcNode;
 
 typedef struct AMGraph {
-	AdjList vertices; //定义了顶点结构体的数组
+	VNode* vertices; //定义了顶点结构体的数组;可以直接存结构体指针来动态规划实际需要的空间
 	int vexnum, arcnum; //定义顶点数和边数
 };
 
@@ -41,6 +41,7 @@ Status CreateAMGraph(AMGraph &G) {//这里构建的是无向网,无向图，有向图/网适当变动
 	VerTexType V1, V2;
 	int w, i, j;
 	cin >> G.arcnum >> G.vexnum;//输入图的边数和顶点数
+	G.vertices = (VNode*)malloc(sizeof(VNode*) * G.vexnum);
 	for (int k = 0; k < G.vexnum; k++) {
 		cin >> G.vertices[k].value;//构建顶点表，给需要的顶点数量的顶点赋值,同时初始化赋值了的临边表
 		G.vertices[k].firstarc = NULL;

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="图的十字链表表示法.cpp" />
     <ClCompile Include="图的邻接矩阵实现.cpp" />
     <ClCompile Include="图的邻接表表示法.cpp" />
     <ClCompile Include="链表.c" />

@@ -39,14 +39,21 @@ Status CreateUDN(AMGraph& G) {//引用图结构
 	VerTexType V1, V2;
 	int w = Maxint;
 	int i = 0, j = 0;
+	cout<<"请输入对应的顶点数和边数:" <<endl;
 	cin >> G.vexnum >> G.arcnum;//输入顶点数和边数
 	for (int i = 0; i < G.vexnum; i++)//构建顶点表
+	{
+		cout<<"请输入所有顶点:"<<endl; 
 		cin >> G.vexs[i];
+	}
+
 	for (int i = 0; i < G.vexnum; i++)
 		for (int j = 0; j < G.vexnum; j++)
-			G.arcs[i][j] = Maxint;
+			G.arcs[i][j] = Maxint;			
+
 	//构建邻接矩阵
 	for (int k = 0; k < G.arcnum; k++) {
+		cout<<"请依次输入顶点及边的权值"<<endl;
 		cin >> V1 >> V2 >> w; //输入一条边依附的顶点及边的权值
 		i = LocateVex(G, V1);
 		j = LocateVex(G, V2);
@@ -63,6 +70,7 @@ Status PrintUDN(AMGraph u) {
 	for (int i = 0; i < u.vexnum; i++)
 		for (int j = 0; j < u.vexnum; j++)
 			if (u.arcs[i][j] != Maxint) cout << u.vexs[i] << "->" << u.vexs[j] << u.arcs[i][j] << endl;
+	return true;
 }
 
 //统计无向网某个顶点的度(=Out+in)
@@ -73,17 +81,18 @@ int CountDu(AMGraph G) {
 	index = LocateVex(G, V);
 	for (int i = 0; i < G.vexnum; i++)//检索入度
 		if (G.arcs[i][index] != Maxint) count++;
-	for (int j = 0; j < G.vexnum; j++)//检索出度
-		if (G.arcs[index][j] != Maxint) count++;
+//	for (int j = 0; j < G.vexnum; j++)//检索出度
+//		if (G.arcs[index][j] != Maxint) count++;
 	return count;
 }
 
 
 
 int main() {
+	int count;
 	AMGraph G;
 	CreateUDN(G);//键盘输入创建图
 	PrintUDN(G);//打印图
-	CountDu(G);//统计某个顶点的度
+	cout<<CountDu(G)<<endl;//统计某个顶点的度
 	return 0;
 }
