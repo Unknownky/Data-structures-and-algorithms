@@ -5,6 +5,7 @@ using namespace std;
 
 //实现无向网和有向网差别不大，只需要减少相反的赋值就行了；实现有向图只需要用1/0表示状态就行了，无向图也差不多
 
+#define MaxLen 15 //定义BFS的队列的最大长度
 #define Maxint 32767  //表示极大值，即无穷;为赋值时即为正无穷
 #define MVnum 100     //最大顶点数，方阵的行数
 typedef char VerTexType;  //设顶点的数据类型为字符型
@@ -100,6 +101,13 @@ void DFS(AMGraph* G, int v) {
 		if (!G->visited[i] && G->arcs[v][i]!=Maxint)//i是v的邻接点，如果i未访问，则递归调用DFS
 			DFS(G, i);
 }
+
+//图的邻接矩阵的广度优先遍历,非递归算法，利用队列实现
+//void BFS(AMGraph* G, int v) {
+//
+//
+//
+//}
 
 int main() {
 	int count;
