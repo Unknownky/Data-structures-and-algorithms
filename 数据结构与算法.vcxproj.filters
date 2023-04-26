@@ -27,5 +27,11 @@
     <ClCompile Include="图的十字链表表示法.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="图的邻接矩阵表示法上的深度优先遍历实现.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="图的邻接矩阵相关变量声明.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

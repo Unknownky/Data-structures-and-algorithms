@@ -5,7 +5,6 @@ using namespace std;
 
 //实现无向网和有向网差别不大，只需要减少相反的赋值就行了；实现有向图只需要用1/0表示状态就行了，无向图也差不多
 
-
 #define Maxint 32767  //表示极大值，即无穷;为赋值时即为正无穷
 #define MVnum 100     //最大顶点数，方阵的行数
 typedef char VerTexType;  //设顶点的数据类型为字符型
@@ -18,6 +17,7 @@ typedef struct AMGraph {
 	VerTexType vexs[MVnum]; //定义顶点表
 	ArcType arcs[MVnum][MVnum]; //定义邻接矩阵
 	int vexnum, arcnum;
+	int visited[MVnum];//定义访问顶点的数组
 }AMGraph;//Adjacency Matrix Graph
 
 //算法思想：
@@ -41,6 +41,7 @@ Status CreateUDN(AMGraph& G) {//引用图结构
 	int i = 0, j = 0;
 	cout<<"请输入对应的顶点数和边数:" <<endl;
 	cin >> G.vexnum >> G.arcnum;//输入顶点数和边数
+	//G.visited = (int*)malloc(sizeof(int)*G.vexnum);
 	for (int i = 0; i < G.vexnum; i++)//构建顶点表
 	{
 		cout<<"请输入所有顶点:"<<endl; 
@@ -50,7 +51,8 @@ Status CreateUDN(AMGraph& G) {//引用图结构
 	for (int i = 0; i < G.vexnum; i++)
 		for (int j = 0; j < G.vexnum; j++)
 			G.arcs[i][j] = Maxint;			
-
+	for(int i = 0; i<G.vexnum; i++)
+		G.visited[i] = false;
 	//构建邻接矩阵
 	for (int k = 0; k < G.arcnum; k++) {
 		cout<<"请依次输入顶点及边的权值"<<endl;
@@ -86,13 +88,25 @@ int CountDu(AMGraph G) {
 	return count;
 }
 
+//引用了对应矩阵实现的代码
+//算法思路为使用DFS（Depth-First-Search）深度优先遍历
 
+void DFS(AMGraph* G, int v) {
+	cout << v;//访问第v个顶点
+	if(G->visited[v]==false)
+		cout << G->vexs[v] << endl;//打印该结点
+	G->visited[v] = true;
+	for (int i = 0; i < G->vexnum; i++)
+		if (!G->visited[i] && G->arcs[v][i]!=Maxint)//i是v的邻接点，如果i未访问，则递归调用DFS
+			DFS(G, i);
+}
 
 int main() {
 	int count;
 	AMGraph G;
 	CreateUDN(G);//键盘输入创建图
-	PrintUDN(G);//打印图
-	cout<<CountDu(G)<<endl;//统计某个顶点的度
+	//PrintUDN(G);//打印图
+	//cout<<CountDu(G)<<endl;//统计某个顶点的度
+	DFS(&G, 0);
 	return 0;
 }
