@@ -13,25 +13,43 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\栈">
+      <UniqueIdentifier>{3113433b-58c7-407a-8c7e-186dc23e874a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\链表">
+      <UniqueIdentifier>{716675f0-ea6e-45c2-9057-9fafb90f6f3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\图">
+      <UniqueIdentifier>{163f19f2-8376-4662-96e3-91ae512710f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\二叉树">
+      <UniqueIdentifier>{c551a598-542a-4bc5-b827-dd67b1fbb876}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="链表.c">
-      <Filter>源文件</Filter>
+    <ClCompile Include="栈的链式存储结构.cpp">
+      <Filter>源文件\栈</Filter>
     </ClCompile>
-    <ClCompile Include="图的邻接矩阵实现.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="栈的线性存储结构.cpp">
+      <Filter>源文件\栈</Filter>
+    </ClCompile>
+    <ClCompile Include="共享栈的实现.cpp">
+      <Filter>源文件\栈</Filter>
+    </ClCompile>
+    <ClCompile Include="链表.c">
+      <Filter>源文件\链表</Filter>
     </ClCompile>
     <ClCompile Include="图的邻接表表示法.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\图</Filter>
+    </ClCompile>
+    <ClCompile Include="图的邻接矩阵实现.cpp">
+      <Filter>源文件\图</Filter>
     </ClCompile>
     <ClCompile Include="图的十字链表表示法.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\图</Filter>
     </ClCompile>
-    <ClCompile Include="图的邻接矩阵表示法上的深度优先遍历实现.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="图的邻接矩阵相关变量声明.h">
-      <Filter>头文件</Filter>
+    <ClCompile Include="二叉树相关操作.cpp">
+      <Filter>源文件\二叉树</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
