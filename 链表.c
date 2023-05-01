@@ -63,7 +63,7 @@ Status ListInsert(SqList* L, int i, ElemType e)//传入指针才能进行修改
 //
 //}
 
-int main() //尝试一下
+int main() 
 {
 	int ret = 0;
 	int a = 0;
