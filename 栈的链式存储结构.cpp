@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 
+
 typedef struct Stack//Õ»½Úµã
 {
 	int data;
@@ -42,6 +43,11 @@ int pop(LinkStack* S, int* e)
 	return 1;
 }
 
+int Is_Empety(const LinkStack* const S) {
+	if (S->top == NULL)
+		return 1;
+	else return 0;
+}
 int main() {
 	LinkStack L;
 	int e;
@@ -54,3 +60,5 @@ int main() {
 	printf("%d\n", e);
 	return 0;
 }
+
+

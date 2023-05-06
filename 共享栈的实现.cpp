@@ -3,6 +3,7 @@
 //2.两个具有相同数据类型的栈共享空间
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define MAXSIZE 20
 //定义共享空间的栈结构
 typedef struct {

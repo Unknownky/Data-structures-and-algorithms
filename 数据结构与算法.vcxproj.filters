@@ -51,5 +51,16 @@
     <ClCompile Include="二叉树相关操作.cpp">
       <Filter>源文件\二叉树</Filter>
     </ClCompile>
+    <ClCompile Include="图的最短路径算法.cpp">
+      <Filter>源文件\图</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="图的邻接矩阵结构.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="栈的链式存储结构.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

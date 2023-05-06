@@ -130,11 +130,16 @@
     <ClCompile Include="二叉树相关操作.cpp" />
     <ClCompile Include="共享栈的实现.cpp" />
     <ClCompile Include="图的十字链表表示法.cpp" />
+    <ClCompile Include="图的最短路径算法.cpp" />
     <ClCompile Include="图的邻接矩阵实现.cpp" />
     <ClCompile Include="图的邻接表表示法.cpp" />
     <ClCompile Include="栈的线性存储结构.cpp" />
     <ClCompile Include="栈的链式存储结构.cpp" />
     <ClCompile Include="链表.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="图的邻接矩阵结构.h" />
+    <ClInclude Include="栈的链式存储结构.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,7 @@
 //1.栈的顺序存储结构*************************
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 #define MAXSIZE 20
 //定义顺序栈的结构体
 typedef struct 
@@ -35,7 +36,7 @@ int main() {
 	int num;
 	int e;
 	L.top = -1;//使用书中定义的空栈时top=-1
-	srand(time(0));
+	srand((unsigned int)time(0));
 	for (int count = 0; count < 10; count++)
 	{
 		num = rand()%20+1;
