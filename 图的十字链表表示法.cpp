@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
 //该代码用于用十字链表法实现图结构,该方法便于统计有向图的度，同时减少无向图的存储空间
+
+//十字链表更多关注顶点，容易找到有向图中的弧头和弧尾，便于统计有向图的度
 #include<iostream>
 #include<stdlib.h>
 using namespace std;

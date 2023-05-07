@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+//已完成Dijkstra算法(包括使用栈进行打印),完成Floyd算法
 
 #include<iostream>
 #include"图的邻接矩阵结构.h"
@@ -8,7 +9,8 @@ using namespace std;
 #define MAX_NUM 30   //定义最大顶点数为30
 
 AMGraph G;
-//Dijkstra算法
+//Dijkstra算法:计算了源点到各个顶点的最短距离
+
 //总体算法:
 //1.设置两个顶点的集合U和T，集合U中存放已找到最短路径的顶点，集合T中存放当前还未找到的最短路径的顶点
 //2.初始状态是U中只包含源点，设为V0
@@ -62,6 +64,7 @@ void Dijkstra(int begin) {
 			}
 		}
 	}
+	//利用栈结构后进先出的特性打印从源点到各个点的最短路径
 	for (int i = 0; i < G.vexnum; i++)
 	{
 		if (i == begin) continue;
@@ -91,14 +94,36 @@ void Dijkstra(int begin) {
 	}
 }
 
-//利用栈结构后进先出的特性打印从源点到各个点的最短路径
-void Dijkstra_Print(int begin) {
+//如果要得到各个顶点为源点到其余各个顶点的最短距离，可以用n次Dijkstra算法对应的时间复杂度为O(n3)(用多个数组依次存储)
+void Full_Dijkstra(int begin) {
+	for (int i = 0; i < G.vexnum; i++)
+	{
 
+	}
 }
 
 
+//而有Floyd算法可以一次性算出所有点之间相互的最短距离,并且代码简单;直接复刻一个矩阵，在复刻的矩阵上进行Floyd变换
+//显然就是取三个顶点,取得三个分别当作前中后顶点如果前中后路径长度小于前中路径那么就修改，之后重复在原基础上修改
+//这里暂时直接在原矩阵的基础上进行修改(因为Floyd算法代码量很少)
+void Floyd() {
+	for (int k = 0; k < G.vexnum; k++)//在这里我认为循环变量的顺序需要依照Dijkstra算法,即先处理掉一个顶点更新路径的问题，在此基础上处理下一个顶点加入是否改变的问题
+	{
+		for (int i = 0; i < G.vexnum; i++)
+		{
+			for (int j = 0; j < G.vexnum; j++)
+			{
+				if (G.arcs[i][k] + G.arcs[k][j] < G.arcs[i][j])
+					G.arcs[i][j] = G.arcs[i][k] + G.arcs[k][j];
+			}
+		}
+	}
+}
+
+//深层需要等学习算法导论的时候
 int main() {
 	CreateUDN(G);//创建一个邻接矩阵图
 	Dijkstra(0); 
+	Floyd();//Floyd算法将矩阵转化为最短路径二维数组
 	return 0;
 }

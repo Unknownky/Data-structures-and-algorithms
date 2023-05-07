@@ -103,6 +103,7 @@ void DFS(AMGraph* G, int v) {
 }
 
 //图的邻接矩阵的广度优先遍历,非递归算法，利用队列实现
+//之后做算法题时在来补充
 //void BFS(AMGraph* G, int v) {
 //
 //
