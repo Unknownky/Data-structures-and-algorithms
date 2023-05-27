@@ -38,8 +38,8 @@ void MiniSpanTree_Prim(int begin) {
 		//找到最小边用于加入(邻接矩阵)
 		for (int j = 0; j < G.vexnum; j++)
 		{
-			if (lowcost[j] != 0 && G.arcs[begin][j] < min)
-			{
+			if (lowcost[j] != 0 && lowcost[j] < min)
+			{//lowcost数组中存储的都是当前已访问集的最短路径
 				min = lowcost[j];
 				min_index = j;//存储下来
 			}
@@ -47,7 +47,7 @@ void MiniSpanTree_Prim(int begin) {
 		//进行打印和访问
 		printf("%d %d %d", adjvex[min_index], min_index, min);//打印对应的边以及最小权值
 		lowcost[min_index] = 0;
-		for (int k = 1; k < G.vexnum; k++)//更新lowcost数组以及adjvex数组;begin已经访问
+		for (int k = 1; k < G.vexnum; k++)//根据新加入的点是否能缩短最短的边来更新lowcost数组以及adjvex数组;begin已经访问
 		{
 			if (lowcost != 0 && G.arcs[min_index][k] < lowcost[k]) {
 				lowcost[k] = G.arcs[min_index][k];
@@ -67,7 +67,10 @@ int Find(int* parent , int f) {
 	}
 	return f;
 }
-//最小生成树中的Krusal算法;关注点为边因此采用边集数组进行访问
+
+//Kruskal算法基本就是根据排序好的边集数组借助并查集避免形成环路不断选取边从而得到最小生成树
+
+//最小生成树中的Kruskal算法;关注点为边因此采用边集数组进行访问
 void MiniSpanTree_Kruskal() {
 	Edge edge[MaxEdge];//定义边集数组表示的图结构
 	int parent[MVnum]; //定义一个数组来判断边与边之间是否形成环路(使用到了并查集的原理)

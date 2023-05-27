@@ -54,12 +54,27 @@
     <ClCompile Include="图的最短路径算法.cpp">
       <Filter>源文件\图</Filter>
     </ClCompile>
+    <ClCompile Include="图的最小生成树算法.cpp">
+      <Filter>源文件\图</Filter>
+    </ClCompile>
+    <ClCompile Include="拓扑算法.cpp">
+      <Filter>源文件\图</Filter>
+    </ClCompile>
+    <ClCompile Include="二叉排序树及相关操作.cpp">
+      <Filter>源文件\二叉树</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="图的邻接矩阵结构.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="栈的链式存储结构.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="图的邻接表结构.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="二叉树的基本操作.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
